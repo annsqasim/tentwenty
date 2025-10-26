@@ -16,4 +16,34 @@ body {
   @apply font-sans;
 }
 
-/* if you use a custom font, add font-display:swap in @font-face */
+.tilted-swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px; 
+}
+
+/* Base style for all slide content */
+.tilted-swiper .slide-content {
+  background-color: #fff;
+  transition: transform 300ms ease, box-shadow 300ms ease; 
+  transform-origin: center center; 
+}
+
+.tilted-swiper .slide-content img {
+  width: 100%;
+  height: auto;
+}
+
+
+.tilted-swiper .swiper-slide-active .slide-content {
+  transform: rotate(0deg) scale(1.05);
+}
+
+.tilted-swiper .swiper-slide-prev .slide-content {
+
+  transform: rotate(-8deg);
+}
+
+.tilted-swiper .swiper-slide-next .slide-content {
+  transform: rotate(8deg);
+}

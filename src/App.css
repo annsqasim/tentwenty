@@ -34,3 +34,9 @@
 .read-the-docs {
   color: #888;
 }
+
+.embla__prev,
+.embla__next,
+.embla__dots {
+  display: none !important;
+}

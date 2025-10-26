@@ -89,7 +89,7 @@ export default function Slider({ autoplay = true, interval = 6000 }) {
 
   return (
     <div className="relative">
-      <div className='navbar p-8 absolute top-0 left-0 w-full z-30'>
+      <div className='navbar lg:p-8 sm:p-0 absolute top-0 left-0 w-full z-30'>
         <Navbar />
       </div>
       <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
