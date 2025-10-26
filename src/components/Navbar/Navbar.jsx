@@ -4,7 +4,7 @@ const Navbar = () => {
   const links = ['About', 'News', 'Services', 'Our Team', 'Make Enquiry']
 
   return (
-    <nav className="flex items-center justify-between py-4 px-8 border-b border-gray-200">
+    <nav className="flex items-center justify-between py-4 px-8 border-b border-gray-200 bg-white">
       <ul className="flex items-center gap-6 text-sm font-medium text-gray-800">
         {links.map((label) => (
           <li key={label}>

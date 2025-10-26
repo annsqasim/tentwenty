@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Slide from './Slide'
-import NextButton from './NextButton'
+import Navbar from '../Navbar/Navbar'
 
 const SLIDES = [
   {
@@ -22,7 +22,7 @@ const SLIDES = [
 
 export default function Slider({ autoplay = true, interval = 6000 }) {
   const [index, setIndex] = useState(0)
-  const [progress, setProgress] = useState(0) // 0..1 for NextButton border
+  const [progress, setProgress] = useState(0)
   const rafRef = useRef(null)
   const startRef = useRef(null)
   const isPaused = useRef(false)
@@ -89,29 +89,18 @@ export default function Slider({ autoplay = true, interval = 6000 }) {
 
   return (
     <div className="relative">
+      <div className='navbar p-8 absolute top-0 left-0 w-full z-30'>
+        <Navbar />
+      </div>
       <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-        {/* Currently visible slide */}
-        <Slide {...SLIDES[index]} indexLabel={`0${index + 1}`} />
-
-        {/* Controls: Next button bottom-left / right area */}
-        <div className="absolute left-8 bottom-8 z-30 flex items-center gap-6">
-          <NextButton onClick={goNext} progress={progress} />
-          {/* small indices + progress bar */}
-          <div className="hidden md:flex flex-col items-start text-white/90">
-            <div className="text-sm mb-2">0{index + 1}</div>
-            <div className="w-56 h-1 bg-white/10 rounded overflow-hidden relative">
-              <div
-                className="absolute left-0 top-0 h-full bg-white"
-                style={{ width: `${((index) / (SLIDES.length - 1)) * 100}%`, opacity: 0.9 }}
-              />
-              <div
-                className="absolute left-0 top-0 h-full bg-white/40"
-                style={{ width: `${(progress) * (100 / SLIDES.length)}%`, transition: 'width 0.15s linear' }}
-              />
-            </div>
-            <div className="text-sm mt-2">0{SLIDES.length}</div>
-          </div>
-        </div>
+        <Slide
+          {...SLIDES[index]}
+          indexLabel={`0${index + 1}`}
+          goNext={goNext}
+          progress={progress}
+          index={index}
+          SLIDES={SLIDES}
+        />
       </div>
     </div>
   )

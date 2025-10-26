@@ -1,5 +1,3 @@
-// SliderControls.jsx (Conceptual Structure for Progress)
-
 const SliderControls = ({ totalSlides, activeIndex, onNext }) => {
     const currentSlideDisplay = String(activeIndex + 1).padStart(2, '0');
     const totalSlidesDisplay = String(totalSlides).padStart(2, '0');
